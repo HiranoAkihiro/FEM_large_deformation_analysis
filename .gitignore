@@ -1,14 +1,16 @@
-# monolis_solid
-# *.o
-# *.log
-# *.mod
-# *.out
-# *.inp
-# *.dat
-# *.msh
-# *.vtu
-# *.pvtu
-# *.txt
-# *.[0-9]
-# .DS_STORE
+run
+test
+integration_test
+*.o
+*.log
+*.mod
+*.out
+*.inp
+*.dat
+*.msh
+*.vtu
+*.pvtu
+*.txt
+*.[0-9]
+.DS_STORE
 
