@@ -9,7 +9,7 @@ You need following environments.
 
 commnd example
 ```
-git clone
+git clone git@github.com:HiranoAkihiro/FEM_large_deformation_analysis.git
 ./monolis_install.sh
 ```
 ## excution example
