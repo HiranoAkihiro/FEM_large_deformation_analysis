@@ -1,4 +1,4 @@
-### install manual for linux
+## install manual for linux
 You need following environments.
 1. make
 2. cmake
@@ -12,7 +12,7 @@ You need following environments.
 git clone git@github.com:HiranoAkihiro/FEM_large_deformation_analysis.git
 ./monolis_install.sh
 ```
-### excution example
+## excution example
 ```
 ./mesher.sh 50.0 1.0 1.0 200 4 4
 make
