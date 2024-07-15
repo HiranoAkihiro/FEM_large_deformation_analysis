@@ -17,4 +17,12 @@ contains
         implicit none
         error stop 1
     end subroutine std_error_stop
+
+    subroutine plot_time(header, time)
+        implicit none
+        real(8) :: time
+        character(*) :: header
+
+        write(*,"(a,1pe10.3,a)")"  - "//trim(header)//" elapse time: ", time, " [sec]"
+    end subroutine plot_time
 end module mod_debug

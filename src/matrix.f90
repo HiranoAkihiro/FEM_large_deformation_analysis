@@ -71,7 +71,7 @@ contains
             dof = param%icload(2, i)
             val = param%cload(i)
             if(ndof < dof) stop "*** error: 3 < dof"
-                var%f(ndof*(in-1) + dof) = val
+                var%f(ndof*(in-1) + dof) = val*1250000.0d0
         enddo
     end subroutine load_condition
 

@@ -267,4 +267,16 @@ end subroutine input_bc
             enddo
         enddo
     end subroutine convert_to_real
+    subroutine writeout_u(var, param, mesh)
+        implicit none
+        type(vardef) :: var
+        type(paramdef) :: param
+        type(meshdef) :: mesh
+        real(8) :: max_value
+
+        max_value = maxval(var%u)
+        open(20,file='disp.dat', status='replace')
+            write(20,*)max_value
+        close(20)
+    end subroutine writeout_u
 end module mod_io

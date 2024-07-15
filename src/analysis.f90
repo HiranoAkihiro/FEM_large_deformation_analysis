@@ -48,6 +48,7 @@ contains
         call u_update(var)
         call outout_res(mesh, param, var)
         write(*,*)esc//"[32m"//'visualizing is done.'//esc//"[0m"
+        call writeout_u(var, param, mesh)
 
     end subroutine small_deformation_analysis
 
@@ -72,9 +73,9 @@ contains
             write(*,'(i0,a)')NRiter,esc//"[36m"//'th NR loop'//esc//"[0m"
             call get_stiff_matrix(mesh, param, var)
             write(*,*)esc//"[32m"//'generating matrix is done.'//esc//"[0m"
+            call get_RHS(mesh, var)
             call bound_condition(mesh, param, var) !//[ ] bound_condition
             write(*,*)esc//"[32m"//'applying bc is done.'//esc//"[0m"
-            call get_RHS(mesh, var)
             
             ! call convert_dense_to_sparse(mat) !//TODO convert_dense_to_sparse
 
@@ -94,6 +95,7 @@ contains
         call u_update(var)
         call outout_res(mesh, param, var) !//TODO 可視化未検証
         write(*,*)esc//"[32m"//'visualizing is done.'//esc//"[0m"
+        call writeout_u(var, param, mesh)
     end subroutine large_deformation_analysis
 
 end module mod_analysis

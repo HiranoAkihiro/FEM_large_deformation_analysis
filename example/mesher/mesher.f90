@@ -156,7 +156,9 @@ program main
       do j = 1, NY
         do i = 1, NX
           if(i == 1)then
-            ip1 = ip1 + 1
+            if(j == 1)then
+              ip1 = ip1 + 1
+            endif
           endif
         enddo
       enddo
@@ -168,19 +170,22 @@ program main
       do j = 1, NY
         do i = 1, NX
           if(i == NX)then
-            if(j ==  1 .and. k ==  1)then; write(30,"(i8,a)") in, ", 2, 0.1"; in = in + 1; cycle; endif
-            if(j ==  1 .and. k == NZ)then; write(30,"(i8,a)") in, ", 2, 0.1"; in = in + 1; cycle; endif
-            if(j == NY .and. k ==  1)then; write(30,"(i8,a)") in, ", 2, 0.1"; in = in + 1; cycle; endif
-            if(j == NY .and. k == NZ)then; write(30,"(i8,a)") in, ", 2, 0.1"; in = in + 1; cycle; endif
-            if(j ==  1)then; write(30,"(i8,a)") in, ", 2, 0.2"; in = in + 1; cycle; endif
-            if(j == NY)then; write(30,"(i8,a)") in, ", 2, 0.2"; in = in + 1; cycle; endif
-            if(k ==  1)then; write(30,"(i8,a)") in, ", 2, 0.2"; in = in + 1; cycle; endif
-            if(k == NZ)then; write(30,"(i8,a)") in, ", 2, 0.2"; in = in + 1; cycle; endif
-            write(30,"(i8,a)") in, ", 2, 0.4"; in = in + 1; cycle;
-          else
-            in = in + 1
-
+            if(j == NY)then
+              if(k == 1)then; write(30,"(i8,a)") in, ", 2, 0.1"; in = in + 1; cycle; endif
+              if(k == NZ)then; write(30,"(i8,a)") in, ", 2, 0.1"; in = in + 1; cycle; endif
+            ! if(j ==  1 .and. k ==  1)then; write(30,"(i8,a)") in, ", 2, 0.1"; in = in + 1; cycle; endif
+            ! if(j ==  1 .and. k == NZ)then; write(30,"(i8,a)") in, ", 2, 0.1"; in = in + 1; cycle; endif
+            ! if(j == NY .and. k ==  1)then; write(30,"(i8,a)") in, ", 2, 0.1"; in = in + 1; cycle; endif
+            ! if(j == NY .and. k == NZ)then; write(30,"(i8,a)") in, ", 2, 0.1"; in = in + 1; cycle; endif
+            ! if(j ==  1)then; write(30,"(i8,a)") in, ", 2, 0.2"; in = in + 1; cycle; endif
+            ! if(j == NY)then; write(30,"(i8,a)") in, ", 2, 0.2"; in = in + 1; cycle; endif
+            ! if(k ==  1)then; write(30,"(i8,a)") in, ", 2, 0.2"; in = in + 1; cycle; endif
+            ! if(k == NZ)then; write(30,"(i8,a)") in, ", 2, 0.2"; in = in + 1; cycle; endif
+            ! write(30,"(i8,a)") in, ", 2, 0.4"; in = in + 1; cycle;
+              write(30,"(i8,a)")in, ", 2, 0.2"; in = in + 1; cycle;
+            endif
           endif
+          in = in + 1
         enddo
       enddo
     enddo

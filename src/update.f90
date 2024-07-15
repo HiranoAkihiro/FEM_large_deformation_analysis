@@ -106,7 +106,7 @@ contains
             call C3D8_integral_point(i, r)
             call C3D8_shapefunc(r, func(i,:))
         enddo
-        call get_inverse_matrix(8, func, inv)
+        call monolis_get_inverse_matrix_R(8, func, inv)
     end subroutine get_interpolation_matrix_C3D8
 
     subroutine get_mises(s, mises)
