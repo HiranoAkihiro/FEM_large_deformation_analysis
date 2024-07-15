@@ -1,4 +1,4 @@
-## install manual for linux environment
+### install manual for linux environment
 You need following environments.
 1. make
 2. cmake
@@ -7,12 +7,12 @@ You need following environments.
 5. Lapack
 6. MPI
 
-commnd example
+**commnd example**
 ```
 git clone git@github.com:HiranoAkihiro/FEM_large_deformation_analysis.git
 ./monolis_install.sh
 ```
-## excution example
+### excution example
 ```
 ./mesher.sh 50.0 1.0 1.0 200 4 4
 make
