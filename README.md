@@ -18,4 +18,4 @@ git clone git@github.com:HiranoAkihiro/FEM_large_deformation_analysis.git
 make
 ./run.sh
 ```
-After `./mesher.sh`, enter (length in x-direction) (length in y-direction) (length in z-direction) (number of divisions in x-direction) (number of divisions in y-direction) (number of divisions in z-direction) in that order.
+After `./mesher.sh`, enter `(length in x-direction) (length in y-direction) (length in z-direction) (number of divisions in x-direction) (number of divisions in y-direction) (number of divisions in z-direction)` in that order.
