@@ -4,7 +4,7 @@ module mod_solver
     
 contains
 
-    subroutine solver(mesh, var) !//TODO CG法を直接実装する
+    subroutine solver(mesh, var)
         implicit none
         type(meshdef) :: mesh
         type(vardef) :: var

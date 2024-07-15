@@ -20,7 +20,6 @@ contains
             call get_element_node_id(icel, mesh%elem, elem)
             call C3D8_stiff(mesh, var, param, icel, stiff)
             call monolis_add_matrix_to_sparse_matrix_R(mat, 8, elem, stiff)
-            ! call add_element_matrix_to_dense_matrix(mat, 8, elem, stiff) !//[ ] add_element_matrix_to_dense_matrix
         enddo
     end subroutine get_stiff_matrix
 
@@ -49,11 +48,11 @@ contains
         enddo
 
         do i = 1, 8
-            call C3D8_integral_point(i, r) ! //[x] OK! C3D8_integral_point
-            call C3D8_get_global_deriv(x, r, dndx, det)! //[x] OK! C3D8_get_global_deriv
-            call C3D8_Bmat(dndx, u, B) ! //[ ] monolis C3D8_Bmat
-            call C3D8_Dmat(param, var%gauss(i,icel), D) !//[ ] monolis C3D8_Dmat
-            call C3D8_Kmat(D, B, wg, det, var%gauss(i,icel)%stress, dndx, stiff) ! //[ ] monolis C3D8_Kmat
+            call C3D8_integral_point(i, r)
+            call C3D8_get_global_deriv(x, r, dndx, det)
+            call C3D8_Bmat(dndx, u, B)
+            call C3D8_Dmat(param, var%gauss(i,icel), D)
+            call C3D8_Kmat(D, B, wg, det, var%gauss(i,icel)%stress, dndx, stiff)
         enddo
 
     end subroutine C3D8_stiff

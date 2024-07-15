@@ -22,9 +22,9 @@ program main
     
     t1 = monolis_get_time()
 
-    call input_param(param) !//[x] OK! input_param
-    call input_mesh(mesh) !//[x] OK! input_mesh
-    call input_bc(mesh, param) !//[x] OK! input_bc
+    call input_param(param)
+    call input_mesh(mesh)
+    call input_bc(mesh, param)
     write(*,*)esc//"[32m"//'input is done.'//esc//"[0m"
 
     if(analysis_flag == 100) call small_deformation_analysis(mesh, param, var)
