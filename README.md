@@ -1,4 +1,4 @@
-### install manual for linux environment
+### install manual for linux
 You need following environments.
 1. make
 2. cmake
