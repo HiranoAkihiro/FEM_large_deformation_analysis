@@ -1,4 +1,5 @@
 module mod_util
+    use mod_monolis
     implicit none
     integer(4), parameter :: ndof = 3
     integer(4) :: analysis_flag
@@ -93,9 +94,17 @@ module mod_util
         ! type(matdef_CSR) :: CSR             !> 行列構造体（CSR 構造）
     end type matdef
 
-    type(matdef) :: mat
+    type(monolis_structure) :: mat
+    type(monolis_com) :: com
 
 contains
+
+    subroutine initialize_matrix(mesh)
+        implicit none
+        type(meshdef) :: mesh
+
+        call monolis_get_nonzero_pattern_by_simple_mesh_R(mat, mesh%nnode, 8, ndof, mesh%nelem, mesh%elem)
+    end subroutine
 
     subroutine initialize_mesh(mesh, var)
         implicit none

@@ -1,0 +1,3 @@
+[submodule "submodule/monolis"]
+	path = submodule/monolis
+	url = git@github.com:nqomorita/monolis.git

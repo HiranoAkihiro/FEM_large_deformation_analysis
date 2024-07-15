@@ -1,3 +1,4 @@
+
 FC       = mpif90
 #FFLAGS   = -O3 -mtune=native -march=native -mfpmath=both
 FFLAGS   = -O2 -fbounds-check -fbacktrace -Wuninitialized -ffpe-trap=invalid,zero,overflow
@@ -8,6 +9,12 @@ CPP       = -cpp
 METIS_DIR  = ./submodule/monolis
 METIS_INC  = -I $(METIS_DIR)/include
 METIS_LIB  = -L$(METIS_DIR)/lib -lmetis
+
+# mumps library
+#MUMPS_DIR  = ./
+#MUMPS_INC  = -I $(MUMPS_DIR)/include
+#MUMPS_LIB  = -L$(MUMPS_DIR)/lib -lpord -lmumps_common -ldmumps
+#-L/usr/local/lib -lscalapack -L/usr/local/Cellar/openblas/0.3.13/lib  -lopenblas
 
 # monolis library
 MONOLIS_DIR= ./submodule/monolis
@@ -31,7 +38,7 @@ $(TARGET): $(OBJS)
 	$(FC) -o $@ $(OBJS) $(LDFLAGS) $(LIBS)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.f90
-	$(FC) $(FFLAGS) $(MOD_DIR) -o $@ -c $<
+	$(FC) $(FFLAGS) $(CPP) $(INCLUDE) $(MOD_DIR) -o $@ -c $<
 
 clean:
 	$(RM) $(OBJS) $(TARGET) ./include/*.mod

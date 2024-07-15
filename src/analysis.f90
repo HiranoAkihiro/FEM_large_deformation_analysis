@@ -18,6 +18,7 @@ contains
         allocate(AT(ndof*mesh%nnode,ndof*mesh%nnode), source = 0.0d0)
 
         call initialize_mesh(mesh, var)
+        call initialize_matrix(mesh)
 
         call load_condition(var, param)
         write(*,*)esc//"[32m"//'load condition is done.'//esc//"[0m"
@@ -58,8 +59,9 @@ contains
         integer(4) :: NRiter
         character :: esc*1 = char(27)
 
-        call clear_mat_value(mat, mesh) !//[x] OK! clear_mat_value
+        ! call clear_mat_value(mat, mesh) !//[x] OK! clear_mat_value
         call initialize_mesh(mesh, var) !//[x] OK! initialize_mesh
+        call initialize_matrix(mesh)
 
         call load_condition(var, param)!//[x] <checked!>
 

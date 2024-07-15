@@ -2,6 +2,7 @@ program main
     use mod_util
     use mod_io
     use mod_analysis
+    use mod_monolis
 
     implicit none
     type(meshdef) :: mesh
@@ -11,6 +12,11 @@ program main
     character :: esc*1 = char(27)
 
     call chdir('example', ierr)
+
+    call monolis_global_initialize()
+    call monolis_initialize(mat)
+    call monolis_com_initialize_by_parted_files(com, monolis_mpi_get_global_comm(), &
+        & MONOLIS_DEFAULT_TOP_DIR, MONOLIS_DEFAULT_PART_DIR, "node.dat")
 
     call input_param(param) !//[x] OK! input_param
     call input_mesh(mesh) !//[x] OK! input_mesh
@@ -22,5 +28,8 @@ program main
 
     call chdir('../', ierr)
     write(*,*)esc//"[33m"//'all is done.'//esc//"[0m"
+
+    call monolis_finalize(mat)
+    call monolis_global_finalize()
 
 end program main

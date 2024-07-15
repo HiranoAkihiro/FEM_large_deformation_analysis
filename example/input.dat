@@ -2,4 +2,4 @@
 0.3             !> Poisson ratio
 1090.0          !> density
 100             !> maximum iteration of Newton-Raphson method
-100             !> analysis flag (100:small_deformation_analysis, 101:large_deformation_analysis)
+101             !> analysis flag (100:small_deformation_analysis, 101:large_deformation_analysis)
